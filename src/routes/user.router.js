@@ -1,4 +1,4 @@
-const { getAll, create, getOneUser, removeUser } = require('../controllers/user.controllers');
+const { getAll, create, getOneUser, removeUser, update } = require('../controllers/user.controllers');
 const express = require('express');
 
 const userRouter = express.Router();
@@ -10,6 +10,7 @@ userRouter.route("/")
 userRouter.route("/:id")
 		.get(getOneUser)
 		.delete(removeUser)
+		.put(update)
 
 
 module.exports = userRouter;

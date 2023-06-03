@@ -29,10 +29,22 @@ const removeUser = catchError(async(req, res) => {
 
 });
 
+const update = catchError(async(req, res) => {
+    const { id } = req.params
+    const user = req.body
+    const updateUser = await User.update(user, {where: {id}, returning: true });
+
+    if(updateUser[0] == 0) return res.status(404).json({message:"User not found"})
+
+    return res.json(updateUser [1][0])
+
+})
+
 
 module.exports = {
     getAll,
     create,
     getOneUser,
-    removeUser
+    removeUser,
+    update
 }
