@@ -37,7 +37,7 @@ const update = catchError(async(req, res) => {
     if(updateUser[0] == 0) return res.status(404).json({message:"User not found"})
 
     return res.json(updateUser [1][0])
-
+    
 })
 
 
